@@ -12,30 +12,48 @@ struct ContentView: View {
     @State private var messageString = ""
     
     var body: some View {
-        VStack {
-            
-            Text(messageString)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .minimumScaleFactor(0.5)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.red)
-                .frame(height: 150)
-                .frame(maxWidth: .infinity)
-                .border(.orange, width: 1)
-                .padding()
-            
-            HStack {
-                Button("Awesome") {
-                    // This is the action performed when the button is pressed
-                    messageString = "You Are Awesome!"
-                }
-                .buttonStyle(.borderedProminent)
+        ZStack {
+            VStack {
                 
-                Button("Great") {
-                    messageString = "You Are Great!"
+                Spacer()
+                
+                Text(messageString)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.red)
+                    .frame(height: 150)
+                    .frame(maxWidth: .infinity)
+                //                .border(.orange, width: 1)
+                    .padding()
+                //                    .background(Color(.gray).opacity(0.15))
+                
+                Spacer()
+                
+                Divider()
+                    .background(.black)
+                    .padding()
+                    .frame(width: 150.0)
+                
+                Rectangle()
+                    .fill(.indigo)
+                
+                HStack {
+                    Button("Awesome") {
+                        // This is the action performed when the button is pressed
+                        messageString = "You Are Awesome!"
+                    }
+                    .buttonStyle(.borderedProminent)
+                    
+                    Spacer()
+                    
+                    Button("Great") {
+                        messageString = "You Are Great!"
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
+                .padding()
             }
         }
     }
