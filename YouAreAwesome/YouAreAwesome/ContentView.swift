@@ -17,20 +17,6 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Image(systemName: "cloud.sun.rain.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .symbolRenderingMode(.multicolor)
-                    .padding()
-                    .background(Color(hue: 0.558, saturation: 0.075, brightness: 1.0))
-                    .cornerRadius(30)
-                    .shadow(color: .gray, radius: 30, x:20, y: 20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                            .stroke(.blue, lineWidth: 1)
-                    )
-                    .padding()
-                
                 Text(messageString)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
