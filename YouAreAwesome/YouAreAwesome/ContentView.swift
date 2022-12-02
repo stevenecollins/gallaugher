@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var messageString = "Namaste"
+    @State private var messageString = ""
     
     var body: some View {
         ZStack {
@@ -28,23 +28,21 @@ struct ContentView: View {
                     .padding()
                 
                 Spacer()
-                                
-                HStack {
-                    Button("Awesome") {
-                        // This is the action performed when the button is pressed
-                        messageString = "You Are Awesome!"
+                
+                
+                Button("Awesome") {
+                    let message1 = "You are Great"
+                    let message2 = "You are Awesome"
+                   
+                    if messageString == message1 {
+                        messageString = message2
+                    } else {
+                        messageString = message1
                     }
-                    .buttonStyle(.borderedProminent)
-                    
-                    Spacer()
-                    
-                    Button("Great") {
-                        messageString = "You Are Great!"
-                    }
-                    .buttonStyle(.borderedProminent)
                 }
-                .padding()
+                .buttonStyle(.borderedProminent)
             }
+            .padding()
         }
     }
 }
