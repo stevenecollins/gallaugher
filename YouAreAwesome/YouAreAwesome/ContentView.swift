@@ -12,9 +12,7 @@ struct ContentView: View {
     @State private var messageString = ""
     @State private var imageName = ""
     @State private var imageNumber = 0
-    
-    let image0 = "image0"
-    let image1 = "image1"
+    @State private var messageNumber = 0
     
     var body: some View {
         ZStack {
@@ -43,21 +41,25 @@ struct ContentView: View {
                 
                 
                 Button("Show Message") {
-                    let message1 = "You are Great"
-                    let message2 = "You are Awesome"
-                    
-                    // Ternary Operator
-                    messageString = ( messageString == message1 ? message2 : message1)
+                    let messages = ["You are Awesome!",
+                                    "You are a Code Monster",
+                                    "You are Great!",
+                                    "You are Fantastic!",
+                                    "Swifty"]
 
+                    messageString = messages[messageNumber]
+                    messageNumber += 1
+                    
+                    if messageNumber == messages.count {
+                        messageNumber = 0
+                    }
+                    
                     imageName = "image\(imageNumber)"
                     imageNumber = imageNumber + 1
-                    // imageNumber += 1 // Alternative way
+
                     if imageNumber > 9 {
                         imageNumber = 0
                     }
-                    print(imageNumber)
-                    
-                    
                     
                 }
                 .buttonStyle(.borderedProminent)
